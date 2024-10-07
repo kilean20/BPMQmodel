@@ -1,0 +1,58 @@
+# Python-specific ignores
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+*.venv
+*.egg
+*.egg-info/
+dist/
+build/
+*.whl
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Virtual environment directories
+env/
+venv/
+
+# Jupyter Notebook specific ignores
+*.ipynb
+
+# Ignore specific data and outputs (optional)
+*.h5
+*.csv
+*.json
+*.db
+*.sqlite
+*.log
+*.out
+
+# Byte-compiled Python files
+*.so
+
+# Pytest cache and logs
+.pytest_cache/
+test-reports/
+
+# Jupyter runtime and configuration files
+.jupyter/
+.local/share/jupyter/
+.envrc
+.DS_Store
+.vscode/
+
+# Ignore configuration files for editors
+*.swp
+.idea/
+.vscode/
+
+# MacOS file
+.DS_Store
+
+# Ignore custom config files (optional)
+config.json
+*.yaml
+*.yml
