@@ -1,6 +1,6 @@
-## Usage:
+### Usage:
 
-### Load Model
+# Load Model
 
 ```python
 BPMs = ['BDS_BTS:BPM_D5513', 'BDS_BTS:BPM_D5565']
@@ -17,8 +17,8 @@ for bpm in BPMs:
     model = BPMQ_model(**model_info)
     model.load_state_dict(state_dict)
     models[bpm] = model
-
-### BPMQ Prediction from 4 Pickup Data
+```
+# BPMQ Prediction from 4 Pickup Data
 
 #### Prepare Input Data
 
@@ -28,3 +28,12 @@ for bpm in BPMs:
     U[bpm] = torch.tensor(df[bpm][['U1', 'U2', 'U3', 'U4']].values, dtype=models[bpm].dtype)
     X[bpm] = torch.tensor(df[bpm]['XPOS'].values, dtype=models[bpm].dtype)
     Y[bpm] = torch.tensor(df[bpm]['YPOS'].values, dtype=models[bpm].dtype)
+```
+#### Model Prediction
+```python
+Qpred = {}
+with torch.no_grad():
+    for bpm in BPMs:
+        model = models[bpm]
+        Qpred[bpm] = model(U[bpm], X[bpm], Y[bpm]).view(-1).detach()
+```
